@@ -1,0 +1,32 @@
+.profileContainer{
+    background-color: #dbdafd;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+.header{
+
+}
+.cover{
+    width: 100%;
+    height: 300px;
+    background-color: #f0effe;
+    position: relative;
+}
+.avatar{
+    position: absolute;
+    bottom: -40px;
+    left: 50px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.fullname{
+    position: absolute;
+    bottom: -20px;
+    left: 150px;
+    font-size: 20px;
+    font-family: serif;
+    letter-spacing: 1px;
+}

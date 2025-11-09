@@ -8,7 +8,7 @@ import Robot from "../../../components/robot/Robot";
 
 const url = import.meta.env.VITE_API_URL;
 
-export default memo(function ChatList() {
+export default memo(function ChatList({setTabActive}) {
   const { logout, socket, user, toast } = useContext(AuthContext);
   const [contacts, setContacts] = useState([]);
   const [userChat, setUserChat] = useState(null);
@@ -200,7 +200,7 @@ export default memo(function ChatList() {
       {/* RIGHT PANEL */}
       <div className={styles.contentRight}>
         {userChat ? (
-          <Conversation ref={conversationRef} setContacts={setContacts} friendData={userChat} />
+          <Conversation setTabActive={setTabActive} ref={conversationRef} setContacts={setContacts} friendData={userChat} />
         ) : (
           <Robot />
         )}
