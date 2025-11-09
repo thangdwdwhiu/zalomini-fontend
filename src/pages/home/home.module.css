@@ -1,0 +1,229 @@
+
+.mainContent{
+    flex: 12;
+    display: flex;
+    flex-direction: column;
+
+}
+.iconChat{
+    flex: 1;
+    background-color: #005ae0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+}
+.sideBar{
+   display: flex;
+   align-items: center;
+    width: 100% !important;
+    height: 50px;
+    background-color: #e5e7eb;
+    color: black;
+    padding: 10px;
+    gap: 20px;
+}
+.contentLeft{
+    flex: 2;
+    background-color: white;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.contentRight{
+    flex: 6;
+    display: flex;
+    flex-direction: column;
+}
+.searchBar{
+    position: relative;
+}
+.searchContainer{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color:#f0f2f5;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+    height: auto;
+    z-index: 500;
+}
+
+
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.contact:hover {
+  background-color: #f0f2f5; /* màu nền hover nhẹ */
+  transform: scale(1.01);
+}
+
+/* Ảnh đại diện */
+.contact img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+/* Thông tin người liên hệ */
+.contact .info {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Tên người */
+.contact .info .name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111;
+  margin-bottom: 3px;
+}
+
+/* Tin nhắn gần nhất */
+.contact .info .message {
+  font-size: 13px;
+  color: #555;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* chỉ hiện 2 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+/* Thời gian tin nhắn */
+.contact .time {
+  font-size: 11px;
+  color: #888;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+.conversation{
+    
+}
+
+
+
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: #f0f2f5;
+  height: 100vh;
+  
+
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  max-width: 70%;
+}
+
+.message .content {
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+.message.me {
+  align-self: flex-end; /* canh sang phải */
+}
+
+.message.friend {
+  align-self: flex-start; /* canh sang trái */
+}
+
+.message.me .content {
+  background-color: #1877f2;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.message.friend .content {
+  background-color: #e4e6eb;
+  color: black;
+  border-bottom-left-radius: 0;
+}
+
+.message .time {
+  font-size: 10px;
+  color: #888;
+  margin-top: 2px;
+}
+.settingContainer{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  gap: 10px;
+}
+.modalContact {
+  min-width: 340px;
+  height: auto;
+  font-family: serif;
+  color: black;
+  transform: translateX(-25%);
+  background-color: white;
+  animation: slide 0.5s linear;
+  border-radius: 10px;
+}
+@keyframes slide {
+  0%{
+    transform: translateY(-150%) ;
+  }
+  100%{
+    transform: translateY(-50%);
+  }
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.5);
+}
+.avatar{
+  position: relative;
+  cursor: pointer;
+}
+.eye{
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.avatar:hover .eye{
+  display: block;
+}

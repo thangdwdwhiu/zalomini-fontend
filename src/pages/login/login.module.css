@@ -1,0 +1,88 @@
+
+.form{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    background-color: antiquewhite;
+    border-radius: 10px;
+    box-shadow: 0 2px #777;
+    min-width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: serif;
+}
+.formControl{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.btn-skew-arrow {
+    width: 70%;
+  display: flex;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #256176;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transform: skewX(-15deg);
+  transition: 1s;
+  box-shadow: 6px 6px 0 #c1d2d9;
+}
+
+.btn-skew-arrow:focus {
+  outline: none;
+}
+
+.btn-skew-arrow:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #25aaaa;
+}
+
+.btn-skew-arrow .arrow {
+  transition: 0.5s;
+  margin-right: 0;
+}
+
+.btn-skew-arrow:hover .arrow {
+  margin-right: 45px;
+}
+
+.btn-skew-arrow .text {
+  transform: skewX(15deg);
+}
+
+.btn-skew-arrow .one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+.btn-skew-arrow .two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.btn-skew-arrow:hover .three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.btn-skew-arrow:hover .one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-skew-arrow:hover .two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+@keyframes color_anim {
+  0% { fill: white; }
+  50% { fill: #25aaaa; }
+  100% { fill: white; }
+}
