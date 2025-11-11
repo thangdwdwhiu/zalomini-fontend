@@ -180,10 +180,12 @@ export default memo(function Friend({setTabActive}) {
             const data = await res.json()
 
             if (data.success) {
-                    setFriends((prev) => prev.filter((item) => item.user_id != id))
+                    setRequests((prev) => prev.filter((item) => item.user_id != id))
+                    toast.success(data.message)
                 return
 
             }
+             toast.success(data.message)
             console.log(data.message);
 
         }

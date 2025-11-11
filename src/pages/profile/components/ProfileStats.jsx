@@ -43,7 +43,7 @@ export default memo (function ProfileStats ({profile}) {
         <>
          <i><i className="bi bi-info-circle"> </i>Thông tin cá nhân</i>
          <span>phone: {phone}</span>
-         <span>bạn bè: {mount_friends} <button onClick={handleViewFriends} className="btn"><i  className="bi bi-eye-fill"></i></button></span>
+         <span>bạn bè: {mount_friends} <button onClick={handleViewFriends} className="btn"><i  className={`bi bi-eye-fill ${modalView && 'text-danger'}`}></i></button></span>
          {
             modalView &&
             (<ModalViewFriends hasFriends={hasFriends}  />)

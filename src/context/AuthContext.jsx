@@ -164,6 +164,11 @@ export const AuthProvider = ({ children }) => {
     socket.current.on("message", (message) => {
       alert(`Đã nhận tin nhắn: ${message}`);
     });
+    socket.current.on('newRequest', (message) => {
+            toast.success(message)
+            
+    })
+    socket.current.on('newAccept', message => toast.success(message))
 
     socket.current.on("unauthorized", (error) => {
       console.error("🚫 Unauthorized:", error);
