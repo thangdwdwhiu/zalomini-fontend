@@ -4,7 +4,9 @@ export default memo (function Group() {
 
     return (
         <>
-            group
+            <div className={`container-fluid`}>
+                    
+            </div>
         </>
     )
 })
