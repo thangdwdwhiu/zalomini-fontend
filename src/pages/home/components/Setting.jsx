@@ -211,13 +211,13 @@ export default memo(function Setting() {
                             <div className="input-group">
                                 <button onClick={(e) => { e.stopPropagation(); setModalChangeFullname(false) }} className="btn"><i className="bi bi-x text-danger"></i></button>
                                 <input onChange={handleChange} value={userNew.fullnameNew} className="form-control w-25" type="text" name="fullnameNew" id="" placeholder={user.fullname} />
-                                <button onClick={handleChangeFullame} type="submit" className="input-group-text"><i className="bi bi-check-square text-success"></i></button>
+                                <button onClick={handleChangeFullame} type="submit" className={`input-group-text ${userNew.fullnameNew && 'border border-black'}`}><i className="bi bi-check-square text-success"></i></button>
                             </div>
                             <br />
                             <div className="input-group">
                                 <button onClick={(e) => { e.stopPropagation(); setModalChangeFullname(false) }} className="btn"><i className="bi bi-x text-danger"></i></button>
                                 <input onChange={handleChange} value={userNew.passwordNew} className="form-control w-25" type="text" name="passwordNew" id="" placeholder="Mật khẩu" />
-                                <button onClick={handleChangePassword} type="submit" className="input-group-text"><i className="bi bi-check-square text-success"></i></button>
+                                <button onClick={handleChangePassword} type="submit" className={`input-group-text ${userNew.passwordNew && 'border border-black'}`}><i className="bi bi-check-square text-success"></i></button>
                             </div>
                         </>
                         )}

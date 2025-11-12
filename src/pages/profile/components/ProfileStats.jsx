@@ -1,5 +1,6 @@
 import { memo, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const url  = import.meta.env.VITE_API_URL
 export default memo (function ProfileStats ({profile}) {
@@ -54,12 +55,13 @@ export default memo (function ProfileStats ({profile}) {
 
 
 const ModalViewFriends = ({hasFriends}) =>{
+    const navigate = useNavigate()
     return (<>
         <div className="row row-cols-2 row-cols-md-4 row-cols-lg-4 gap-2">
             {
                 hasFriends.map((item) => (
                     <>
-                    <div key={item.friend_id} className="col">
+                    <div style={{cursor: 'pointer'}} onClick={() => navigate(`/profile/${item.friend_id}`)} key={item.friend_id} className="col">
                                 <div style={{backgroundColor: '#f0effe', borderRadius: '5px', padding: '5px'}} className="d-flex align-items-center gap-2">
                                     <img style={{width: '30px', height: '30px', borderRadius: '50%'}} src={item.avatar} alt="" />
                                     <span>{item.fullname}</span>
