@@ -4,6 +4,8 @@ import { io } from 'socket.io-client';
 import { ToastContainer, toast } from "react-toastify";
 
 const url = import.meta.env.VITE_API_URL;
+const wsk = import.meta.env.VITE_SOCKET;
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -144,7 +146,7 @@ export const AuthProvider = ({ children }) => {
     // ✅ Khởi tạo socket SAU KHI LOGIN
     console.log('🔌 Đang kết nối socket cho user:', user.fullname);
     
-    socket.current = io("http://localhost:3000", {
+    socket.current = io(wsk, {
       withCredentials: true,
       reconnection: true,
       reconnectionAttempts: 10,
