@@ -8,8 +8,6 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview --port $PORT --host"
-}
-
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
