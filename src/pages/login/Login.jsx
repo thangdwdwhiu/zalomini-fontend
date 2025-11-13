@@ -4,7 +4,8 @@ import { useState } from "react";
 import ButtonNext from "../../components/button/ButtonNext";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import ButtonLoading from "../../components/button/buttonLoading";
+import ButtonLoading from '../../components/button/ButtonLoading.jsx'
+
 export default memo(function Login() {
     const [selected, setSelected] = useState('login')
   

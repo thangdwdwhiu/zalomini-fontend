@@ -5,8 +5,6 @@ export default memo(function ButtonLoading() {
 
     return (
         <>
-  
-
                 <div class={`btnLoading`}></div>
 
         </>
