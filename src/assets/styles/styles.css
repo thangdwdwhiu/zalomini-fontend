@@ -397,3 +397,18 @@ robot */
         .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
         .particle:nth-child(7) { left: 70%; animation-delay: 0.5s; }
         .particle:nth-child(8) { left: 80%; animation-delay: 1.5s; }
+
+/* btn loading */
+.btnLoading {
+   width: 100.8px;
+   height: 16.8px;
+   -webkit-mask: radial-gradient(circle closest-side,#256176 94%,#0000) left/20% 100%;
+   background: linear-gradient(#256176 0 0) left/0% 100% no-repeat #82d0de;
+   animation: progress-c3ir73 2.0s infinite steps(6);
+}
+
+@keyframes progress-c3ir73 {
+   100% {
+      background-size: 120% 100%;
+   }
+}

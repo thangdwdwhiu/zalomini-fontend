@@ -4,6 +4,7 @@ import { useState } from "react";
 import ButtonNext from "../../components/button/ButtonNext";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import ButtonLoading from "../../components/button/buttonLoading";
 export default memo(function Login() {
     const [selected, setSelected] = useState('login')
   
@@ -31,14 +32,18 @@ const LoginForm = () => {
     const [userData, setUserData] = useState({username: '', password: ''})
     const [show, setShow] = useState(false)
     const {login} = useContext(AuthContext)
+    const [showBtnLoading, setShowBtnLoading] = useState(false)
 
     const handleChange = (e) =>{
         const {name, value} = e.target
         setUserData((pre) => ({...pre,[name]: value}))
     }
-    const handlelogin = () =>{
+    const handlelogin = async () =>{
+      setShowBtnLoading(true)
         console.log(userData)
-        login(userData.username, userData.password)
+
+       await login(userData.username, userData.password)
+       setShowBtnLoading(false)
 
         
 
@@ -59,8 +64,7 @@ const LoginForm = () => {
             </div>
 
 
-
-            <ButtonNext type={'button'} onClick={handlelogin} />
+           {showBtnLoading ? (<ButtonLoading />) : ( <ButtonNext type={'button'} onClick={handlelogin} />)}
 
         </form>
     </>)
@@ -78,6 +82,7 @@ const RegisterForm = ({setSelected}) => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const { register, toast } = useContext(AuthContext);
+  const [showBtnLoading , setShowBtnLoading] = useState(false)
 
   // Hàm validate chung
   const validate = ({ username, password, phone, fullname }) => {
@@ -107,6 +112,7 @@ if (!/^[\p{L}\s]{3,50}$/u.test(fullname)) {
 
   const handleRegister = async (e) => {
     e.preventDefault()
+    setShowBtnLoading(true)
     setError("");
     setSuccess("");
 
@@ -114,6 +120,7 @@ if (!/^[\p{L}\s]{3,50}$/u.test(fullname)) {
     const errorMsg = validate(userData);
     if (errorMsg) {
       setError(errorMsg);
+      setShowBtnLoading(false)
       return;
     }
 
@@ -131,6 +138,9 @@ try {
 } catch (err) {
   
   alert(err.message || "lỗi máy chủ")
+}
+finally{
+  setShowBtnLoading(false)
 }
   };
 
@@ -184,7 +194,8 @@ try {
       {error && <p style={{ color: "red", marginTop: "5px" }}>{error}</p>}
       {success && <p style={{ color: "green", marginTop: "5px" }}>{success}</p>}
 
-      <ButtonNext type="submit" onClick={handleRegister} text="Đăng ký" />
+      {!showBtnLoading  ? (<ButtonNext type="submit" onClick={handleRegister} text="Đăng ký" />)  : (<ButtonLoading />)}
+      
     </form>
   );
 }
