@@ -62,6 +62,7 @@ export default memo(function ChatList({setTabActive}) {
             icon: contact?.avatar || '/default-avatar.png',
             tag: `msg-${otherUserId}`, // Tránh spam nhiều notification
           });
+          navigator.vibrate([200, 100, 200]);
         }
       }
 
