@@ -138,7 +138,7 @@ try {
   setTimeout(() => setSelected("login"), 1500);
 } catch (err) {
   
-  alert(err.message || "lỗi máy chủ")
+  toast.error(err.message || "lỗi máy chủ")
 }
 finally{
   setShowBtnLoading(false)

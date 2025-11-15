@@ -1,8 +1,9 @@
-import { memo, useContext, useEffect, useState, useRef, forwardRef, useImperativeHandle } from "react";
+import { memo, useContext, useEffect, useState, useRef, forwardRef, useImperativeHandle, useCallback } from "react";
 import styles from '../../home.module.css';
 import { AuthContext } from "../../../../context/AuthContext";
 import LoadingHeart from "../../../../components/loading/loadingHeart";
 import { useNavigate } from "react-router-dom";
+import video from '../../../../assets/img/goku.mp4'
 
 const url = import.meta.env.VITE_API_URL;
 const PAGE_SIZE = 30; // Số tin nhắn mỗi lần tải
@@ -162,6 +163,52 @@ export default memo(forwardRef(function Conversation({ friendData, setContacts }
     const handleSelectImg = () => imgRef.current.click();
     const handleChooseImg = (e) => setImage(e.target.files[0]);
 
+    //goi video
+  
+    const openVideo = useCallback(() => {
+    // 🔥 Mở cửa sổ rỗng (không mở file mp4!)
+    const videoWindow = window.open(
+        "",
+        "VideoPopup",
+        "width=800,height=600,left=300,top=200,resizable=yes"
+    );
+
+    if (!videoWindow) return;
+
+    // Ghi HTML vào popup
+    videoWindow.document.open();
+    videoWindow.document.write(`
+        <html>
+        <head>
+            <title>Video</title>
+            <style>
+                body {
+                    margin: 0;
+                    background: #000;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+                video {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            </style>
+        </head>
+        <body>
+<video autoplay muted controls>
+    <source src="${video}" type="video/mp4">
+</video>
+
+        </body>
+        </html>
+    `);
+    videoWindow.document.close();
+}, []);
+
+
     return (
         <>
             {/* Header bạn chat */}
@@ -176,6 +223,7 @@ export default memo(forwardRef(function Conversation({ friendData, setContacts }
                     <span className={`ms-2 ${status === "online" ? "text-success" : ""}`}>
                         {status === "online" ? "online" : "offline"}
                     </span>
+                    <button onClick={openVideo} className="btn"><i className="bi bi-camera-video"></i></button>
                 </div>
             </div>
 
