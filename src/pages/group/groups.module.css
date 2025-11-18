@@ -38,3 +38,17 @@
     border-radius: 50%;
     box-shadow: 0 0 2px salmon;
 }
+.modalCreateGroup{
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: #cddcf9;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
