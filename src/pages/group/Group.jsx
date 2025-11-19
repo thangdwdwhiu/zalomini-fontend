@@ -52,7 +52,8 @@ export default memo(function Group() {
                 toast.success(data.message);
                 setGroupContacts((prev) => [...prev, data]);
                 setGroupName("");
-                setPreviewImg(groupDefault); // reset preview
+                setPreviewImg(groupDefault); 
+                setModalAvatar(false)
                 return;
             }
 
